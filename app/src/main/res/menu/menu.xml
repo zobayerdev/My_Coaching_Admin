@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/ic_home"
+        android:title="Dashboard" />
+
+    <item
+        android:id="@+id/menu_lecture_sheets"
+        android:icon="@drawable/ic_lecture"
+        android:title="Lecture\nSheets" />
+
+    <item
+        android:id="@+id/menu_free_question"
+        android:icon="@drawable/ic_question"
+        android:title="Free\nQuestion" />
+
+    <item
+        android:id="@+id/menu_aboutus"
+        android:icon="@drawable/ic_about"
+        android:title="About Us" />
+
+</menu>
