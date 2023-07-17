@@ -82,7 +82,7 @@ public class HomeFragment extends Fragment {
         examsyllabus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), UploadVideoActivity.class);
+                Intent intent = new Intent(getContext(), ExamSyllabusActivity.class);
                 getContext().startActivity(intent);
             }
         });

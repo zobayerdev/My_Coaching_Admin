@@ -773,7 +773,7 @@ public class TeacherRoutineActivity extends AppCompatActivity {
                 String time = String.format(Locale.getDefault(), "%02d:%02d", h, m);
                 HashMap<String, Object> values = new HashMap<>();
                 values.put(slotname, time);
-                databaseStudents.child(user.getUid()).updateChildren(values);
+                databaseStudents.updateChildren(values);
                 textView.setText(time);
 
             }
