@@ -22,11 +22,40 @@
         android:theme="@style/Theme.MyCoaching"
         tools:targetApi="31">
         <activity
+            android:name=".QuestionSolveActivity"
+            android:exported="true"
+            android:parentActivityName=".activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ExamQuestionActivity"
+            android:exported="true"
+            android:parentActivityName=".activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ExamSyllabusActivity"
+            android:exported="true"
+            android:parentActivityName=".activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UploadVideoActivity"
+            android:exported="true"
+            android:parentActivityName=".activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".IncomeExpenseActivity"
+            android:exported="true"
+            android:parentActivityName=".activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".StudentPaymentActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:parentActivityName=".activity.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".StudentAttendenceActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:parentActivityName=".activity.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.TeacherRoutineActivity"
             android:exported="true"

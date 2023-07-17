@@ -4,14 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class StudentAttendenceActivity extends AppCompatActivity {
+public class IncomeExpenseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_attendence);
+        setContentView(R.layout.activity_income_expense);
 
-        getSupportActionBar().setTitle("Student Attendence");
+        getSupportActionBar().setTitle("Income and Expense");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
