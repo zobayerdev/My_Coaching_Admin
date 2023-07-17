@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
@@ -22,18 +21,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCoaching"
         tools:targetApi="31">
-
-
         <activity
-            android:name=".Schedule"
+            android:name=".StudentPaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StudentAttendenceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.TeacherRoutineActivity"
             android:exported="true"
             android:screenOrientation="landscape" />
-
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-            >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

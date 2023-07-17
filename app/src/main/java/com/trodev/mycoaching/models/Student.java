@@ -1,4 +1,4 @@
-package com.trodev.mycoaching;
+package com.trodev.mycoaching.models;
 
 import android.net.Uri;
 

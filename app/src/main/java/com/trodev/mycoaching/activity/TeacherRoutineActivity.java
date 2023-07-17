@@ -1,4 +1,4 @@
-package com.trodev.mycoaching;
+package com.trodev.mycoaching.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,35 +6,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.trodev.mycoaching.R;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
 
-public class Schedule extends AppCompatActivity {
+public class TeacherRoutineActivity extends AppCompatActivity {
 
     Dialog dialog;
     EditText editText;
@@ -63,7 +54,7 @@ public class Schedule extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.schedule);
+        setContentView(R.layout.activity_teacher_routine);
 
         databaseStudents = FirebaseDatabase.getInstance().getReference("Teacher Routine");
         // user= FirebaseAuth.getInstance().getCurrentUser();
@@ -182,7 +173,7 @@ public class Schedule extends AppCompatActivity {
         //levels.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
 
-        dialog = new Dialog(Schedule.this);
+        dialog = new Dialog(TeacherRoutineActivity.this);
         dialog.setContentView(R.layout.custom_popup_dialog);
         dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.ic_android));
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -776,7 +767,7 @@ public class Schedule extends AppCompatActivity {
     public void pickTime(TextView textView, String slotname) {
 
 
-        TimePickerDialog timePickerDialog = new TimePickerDialog(Schedule.this, new TimePickerDialog.OnTimeSetListener() {
+        TimePickerDialog timePickerDialog = new TimePickerDialog(TeacherRoutineActivity.this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int h, int m) {
                 String time = String.format(Locale.getDefault(), "%02d:%02d", h, m);

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -116,7 +117,7 @@
                 android:weightSum="3">
 
                 <LinearLayout
-                    android:id="@+id/dhakaLl"
+                    android:id="@+id/studentAttendanceLl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -151,6 +152,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/studentpaymentLl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"

@@ -1,4 +1,4 @@
-package com.trodev.mycoaching;
+package com.trodev.mycoaching.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -22,6 +22,11 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.trodev.mycoaching.R;
+import com.trodev.mycoaching.fragments.AboutusFragment;
+import com.trodev.mycoaching.fragments.FreeQuestionFragment;
+import com.trodev.mycoaching.HomeFragment;
+import com.trodev.mycoaching.fragments.LectureFragment;
 
 import java.util.Objects;
 
