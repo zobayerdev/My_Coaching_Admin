@@ -1,4 +1,4 @@
-package com.trodev.mycoaching;
+package com.trodev.mycoaching.syllabusactivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.trodev.mycoaching.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +29,8 @@ public class ExamSyllabusActivity extends AppCompatActivity {
 
     private RecyclerView ebookRecycler;
     private DatabaseReference reference, referenceSeven;
-    private List<EbookData> list;
-    private EbookAdapter adapter;
+    private List<SyllabusData> list;
+    private SyllabusAdapter adapter;
 
     ProgressBar progreeBar;
 
@@ -63,6 +64,32 @@ public class ExamSyllabusActivity extends AppCompatActivity {
         getDataSeven();
     }
 
+    private void getData() {
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                list = new ArrayList<>();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    SyllabusData data = snapshot.getValue(SyllabusData.class);
+                    list.add(data);
+                }
+
+                adapter = new SyllabusAdapter(ExamSyllabusActivity.this, list);
+                progreeBar.setVisibility(View.GONE);
+                ebookRecycler.setLayoutManager(new LinearLayoutManager(ExamSyllabusActivity.this));
+                ebookRecycler.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                progreeBar.setVisibility(View.VISIBLE);
+                Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
     private void getDataSeven() {
 
         referenceSeven.addValueEventListener(new ValueEventListener() {
@@ -72,12 +99,12 @@ public class ExamSyllabusActivity extends AppCompatActivity {
                 progreeBar.setVisibility(View.VISIBLE);
                 list = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    EbookData data = snapshot.getValue(EbookData.class);
+                    SyllabusData data = snapshot.getValue(SyllabusData.class);
                     list.add(data);
                 }
 
                 progreeBar.setVisibility(View.INVISIBLE);
-                adapter = new EbookAdapter(ExamSyllabusActivity.this, list);
+                adapter = new SyllabusAdapter(ExamSyllabusActivity.this, list);
                 // progressBar.setVisibility(View.GONE);
                 ebookRecycler.setLayoutManager(new LinearLayoutManager(ExamSyllabusActivity.this));
                 ebookRecycler.setAdapter(adapter);
@@ -86,33 +113,6 @@ public class ExamSyllabusActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 progreeBar.setVisibility(View.GONE);
-                Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
-
-    private void getData() {
-
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                list = new ArrayList<>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    EbookData data = snapshot.getValue(EbookData.class);
-                    list.add(data);
-                }
-
-                adapter = new EbookAdapter(ExamSyllabusActivity.this, list);
-                // progressBar.setVisibility(View.GONE);
-                ebookRecycler.setLayoutManager(new LinearLayoutManager(ExamSyllabusActivity.this));
-                ebookRecycler.setAdapter(adapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                //progressBar.setVisibility(View.GONE);
                 Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
             }
         });

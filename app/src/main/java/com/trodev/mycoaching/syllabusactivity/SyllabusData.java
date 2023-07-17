@@ -1,10 +1,10 @@
-package com.trodev.mycoaching;
+package com.trodev.mycoaching.syllabusactivity;
 
-public class EbookData {
+public class SyllabusData {
 
     private String pdfTitle,pdfUrl;
 
-    public EbookData() {
+    public SyllabusData() {
     }
 
     public String getPdfTitle() {

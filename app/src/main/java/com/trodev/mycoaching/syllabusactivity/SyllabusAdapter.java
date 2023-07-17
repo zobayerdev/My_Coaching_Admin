@@ -1,4 +1,4 @@
-package com.trodev.mycoaching;
+package com.trodev.mycoaching.syllabusactivity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,13 +12,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.trodev.mycoaching.R;
+
 import java.util.List;
 
-public class EbookAdapter extends RecyclerView.Adapter<EbookAdapter.EbookViewHolder> {
+public class SyllabusAdapter extends RecyclerView.Adapter<SyllabusAdapter.EbookViewHolder> {
     private Context context;
-    private List<EbookData> list;
+    private List<SyllabusData> list;
 
-    public EbookAdapter(Context context, List<EbookData> list) {
+    public SyllabusAdapter(Context context, List<SyllabusData> list) {
         this.context = context;
         this.list = list;
     }
@@ -38,7 +40,7 @@ public class EbookAdapter extends RecyclerView.Adapter<EbookAdapter.EbookViewHol
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,SyllabusViewActivity.class);
+                Intent intent = new Intent(context, SyllabusViewActivity.class);
                 intent.putExtra("pdfUrl",list.get(position).getPdfUrl());
                 context.startActivity(intent);
             }

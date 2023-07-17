@@ -1,4 +1,4 @@
-package com.trodev.mycoaching;
+package com.trodev.mycoaching.syllabusactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.github.barteksc.pdfviewer.PDFView;
+import com.trodev.mycoaching.R;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;

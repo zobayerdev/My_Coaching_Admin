@@ -2,14 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
-
 
     <application
         android:allowBackup="true"
@@ -20,16 +19,25 @@
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCoaching"
-        tools:targetApi="31"
-        >
+        tools:targetApi="31">
+
 
         <activity
-            android:name=".SyllabusViewActivity"
+            android:name=".QuestionFullImageActivity"
             android:exported="false"
-            android:parentActivityName=".ExamSyllabusActivity"
+            android:parentActivityName=".ExamQuestionActivity"/>
+        <activity
+            android:name=".UploadQuestionActivity"
+            android:exported="false"
+            android:parentActivityName=".ExamQuestionActivity"
+            />
+        <activity
+            android:name=".syllabusactivity.SyllabusViewActivity"
+            android:exported="false"
+            android:parentActivityName=".syllabusactivity.ExamSyllabusActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".UploadPDFActivity"
+            android:name=".syllabusactivity.UploadPDFActivity"
             android:exported="true"
             android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait" />
@@ -44,7 +52,7 @@
             android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ExamSyllabusActivity"
+            android:name=".syllabusactivity.ExamSyllabusActivity"
             android:exported="true"
             android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait" />
@@ -86,7 +94,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
 
 </manifest>

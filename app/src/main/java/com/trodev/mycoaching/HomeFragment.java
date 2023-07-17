@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.trodev.mycoaching.R;
 import com.trodev.mycoaching.activity.TeacherRoutineActivity;
+import com.trodev.mycoaching.syllabusactivity.ExamSyllabusActivity;
 
 public class HomeFragment extends Fragment {
 
