@@ -23,13 +23,13 @@
 
 
         <activity
-            android:name=".QuestionFullImageActivity"
+            android:name=".questionactivity.QuestionViewActivity"
             android:exported="false"
-            android:parentActivityName=".ExamQuestionActivity"/>
+            android:parentActivityName=".questionactivity.ExamQuestionActivity"/>
         <activity
-            android:name=".UploadQuestionActivity"
+            android:name=".questionactivity.UploadQuestionActivity"
             android:exported="false"
-            android:parentActivityName=".ExamQuestionActivity"
+            android:parentActivityName=".questionactivity.ExamQuestionActivity"
             />
         <activity
             android:name=".syllabusactivity.SyllabusViewActivity"
@@ -47,7 +47,7 @@
             android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ExamQuestionActivity"
+            android:name=".questionactivity.ExamQuestionActivity"
             android:exported="true"
             android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait" />

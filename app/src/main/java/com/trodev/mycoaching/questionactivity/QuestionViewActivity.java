@@ -1,15 +1,12 @@
-package com.trodev.mycoaching;
+package com.trodev.mycoaching.questionactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.github.barteksc.pdfviewer.PDFView;
-import com.squareup.picasso.Picasso;
-import com.trodev.mycoaching.syllabusactivity.SyllabusViewActivity;
+import com.trodev.mycoaching.R;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -17,7 +14,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class QuestionFullImageActivity extends AppCompatActivity {
+public class QuestionViewActivity extends AppCompatActivity {
 
     private String url;
     private PDFView pdfView;
@@ -25,7 +22,7 @@ public class QuestionFullImageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question_full_image);
+        setContentView(R.layout.activity_question_view);
 
         getSupportActionBar().setTitle("Show Question");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

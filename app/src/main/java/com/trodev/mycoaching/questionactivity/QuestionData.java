@@ -1,4 +1,4 @@
-package com.trodev.mycoaching;
+package com.trodev.mycoaching.questionactivity;
 
 public class QuestionData {
 

@@ -1,4 +1,4 @@
-package com.trodev.mycoaching;
+package com.trodev.mycoaching.questionactivity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.trodev.mycoaching.R;
 
 import java.util.List;
 
@@ -42,7 +44,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.Questi
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(context, QuestionFullImageActivity.class);
+                Intent intent = new Intent(context, QuestionViewActivity.class);
                 intent.putExtra("pdfUrl",list.get(position).getPdfUrl());
                 context.startActivity(intent);
             }

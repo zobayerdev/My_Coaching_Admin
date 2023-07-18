@@ -11,19 +11,21 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.trodev.mycoaching.activity.TeacherRoutineActivity;
+import com.trodev.mycoaching.questionactivity.ExamQuestionActivity;
 import com.trodev.mycoaching.syllabusactivity.ExamSyllabusActivity;
 
 public class HomeFragment extends Fragment {
 
-    LinearLayout routineLl, studentAttendanceLl, studentpaymentLl, incomeexpenseLl, videoLectureLl, examsyllabus, examquestionLl , solvequestionLl;
+    LinearLayout routineLl, studentAttendanceLl, studentpaymentLl, incomeexpenseLl,
+            videoLectureLl, examsyllabus, examquestionLl , solvequestionLl;
 
     public HomeFragment() {
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 

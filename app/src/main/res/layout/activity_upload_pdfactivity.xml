@@ -110,7 +110,7 @@
 
                     <!--Button-->
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/uploadPdfBtn"
+                        android:id="@+id/classsixBtn"
                         android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
