@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 
 import com.trodev.mycoaching.activity.TeacherRoutineActivity;
 import com.trodev.mycoaching.questionactivity.ExamQuestionActivity;
+import com.trodev.mycoaching.solvequestionactivity.QuestionSolveActivity;
 import com.trodev.mycoaching.syllabusactivity.ExamSyllabusActivity;
 
 public class HomeFragment extends Fragment {

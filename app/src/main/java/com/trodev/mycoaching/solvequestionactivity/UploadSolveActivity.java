@@ -1,4 +1,4 @@
-package com.trodev.mycoaching.questionactivity;
+package com.trodev.mycoaching.solvequestionactivity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,7 +31,7 @@ import com.trodev.mycoaching.R;
 import java.io.File;
 import java.util.HashMap;
 
-public class UploadQuestionActivity extends AppCompatActivity {
+public class UploadSolveActivity extends AppCompatActivity {
 
     private CardView addPdf;
     private TextView pdfTextView;
@@ -49,9 +49,9 @@ public class UploadQuestionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_upload_question);
+        setContentView(R.layout.activity_upload_solve);
 
-        getSupportActionBar().setTitle("Upload Exam Question");
+        getSupportActionBar().setTitle("Upload Solve Question");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // firebase ini
@@ -92,7 +92,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
                     pdfTitle.requestFocus();
 
                 } else if (pdfData == null) {
-                    Toast.makeText(UploadQuestionActivity.this, "Please select pdf...!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UploadSolveActivity.this, "Please select pdf...!", Toast.LENGTH_SHORT).show();
                 } else {
                     uploadPdf();
                 }
@@ -109,7 +109,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
                     pdfTitle.requestFocus();
 
                 } else if (pdfData == null) {
-                    Toast.makeText(UploadQuestionActivity.this, "Please select pdf...!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UploadSolveActivity.this, "Please select pdf...!", Toast.LENGTH_SHORT).show();
                 } else {
                     uploadPdfSeven();
                 }
@@ -125,7 +125,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
                     pdfTitle.requestFocus();
 
                 } else if (pdfData == null) {
-                    Toast.makeText(UploadQuestionActivity.this, "Please select pdf...!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UploadSolveActivity.this, "Please select pdf...!", Toast.LENGTH_SHORT).show();
                 } else {
                     uploadPdfEight();
                 }
@@ -142,7 +142,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
                     pdfTitle.requestFocus();
 
                 } else if (pdfData == null) {
-                    Toast.makeText(UploadQuestionActivity.this, "Please select pdf...!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UploadSolveActivity.this, "Please select pdf...!", Toast.LENGTH_SHORT).show();
                 } else {
                     uploadPdfNine();
                 }
@@ -159,7 +159,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
                     pdfTitle.requestFocus();
 
                 } else if (pdfData == null) {
-                    Toast.makeText(UploadQuestionActivity.this, "Please select pdf...!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UploadSolveActivity.this, "Please select pdf...!", Toast.LENGTH_SHORT).show();
                 } else {
                     uploadPdfTen();
                 }
@@ -176,7 +176,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
                     pdfTitle.requestFocus();
 
                 } else if (pdfData == null) {
-                    Toast.makeText(UploadQuestionActivity.this, "Please select pdf...!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UploadSolveActivity.this, "Please select pdf...!", Toast.LENGTH_SHORT).show();
                 } else {
                     uploadPdfHsc();
                 }
@@ -191,7 +191,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
         progressDialog.setTitle("Please wait...");
         progressDialog.setTitle("Uploading pdf");
         progressDialog.show();
-        StorageReference reference = storageReference.child("question_class_hsc/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        StorageReference reference = storageReference.child("solve_class_hsc/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
         reference.putFile(pdfData)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -207,7 +207,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "Something went wrong...!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "Something went wrong...!", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -215,25 +215,25 @@ public class UploadQuestionActivity extends AppCompatActivity {
 
     private void uploadDataHsc(String valueOf) {
 
-        String uniqueKey = databaseReference.child("question_class_hsc").push().getKey();
+        String uniqueKey = databaseReference.child("solve_class_hsc").push().getKey();
 
         HashMap data = new HashMap();
         data.put("pdfTitle", title);
         data.put("pdfUrl", valueOf);
 
-        databaseReference.child("question_class_hsc").child(uniqueKey).setValue(data)
+        databaseReference.child("solve_class_hsc").child(uniqueKey).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "PDF uploaded successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "PDF uploaded successful", Toast.LENGTH_SHORT).show();
                         pdfTitle.setText("");
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "Failed to upload PDF", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "Failed to upload PDF", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -244,7 +244,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
         progressDialog.setTitle("Please wait...");
         progressDialog.setTitle("Uploading pdf");
         progressDialog.show();
-        StorageReference reference = storageReference.child("question_class_ten/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        StorageReference reference = storageReference.child("solve_class_ten/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
         reference.putFile(pdfData)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -260,7 +260,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "Something went wrong...!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "Something went wrong...!", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -268,25 +268,25 @@ public class UploadQuestionActivity extends AppCompatActivity {
 
     private void uploadDataTen(String valueOf) {
 
-        String uniqueKey = databaseReference.child("question_class_ten").push().getKey();
+        String uniqueKey = databaseReference.child("solve_class_ten").push().getKey();
 
         HashMap data = new HashMap();
         data.put("pdfTitle", title);
         data.put("pdfUrl", valueOf);
 
-        databaseReference.child("question_class_ten").child(uniqueKey).setValue(data)
+        databaseReference.child("solve_class_ten").child(uniqueKey).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "PDF uploaded successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "PDF uploaded successful", Toast.LENGTH_SHORT).show();
                         pdfTitle.setText("");
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "Failed to upload PDF", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "Failed to upload PDF", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -297,7 +297,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
         progressDialog.setTitle("Please wait...");
         progressDialog.setTitle("Uploading pdf");
         progressDialog.show();
-        StorageReference reference = storageReference.child("question_class_nine/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        StorageReference reference = storageReference.child("solve_class_nine/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
         reference.putFile(pdfData)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -313,7 +313,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "Something went wrong...!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "Something went wrong...!", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -321,25 +321,25 @@ public class UploadQuestionActivity extends AppCompatActivity {
 
     private void uploadDataNine(String valueOf) {
 
-        String uniqueKey = databaseReference.child("question_class_nine").push().getKey();
+        String uniqueKey = databaseReference.child("solve_class_nine").push().getKey();
 
         HashMap data = new HashMap();
         data.put("pdfTitle", title);
         data.put("pdfUrl", valueOf);
 
-        databaseReference.child("question_class_nine").child(uniqueKey).setValue(data)
+        databaseReference.child("solve_class_nine").child(uniqueKey).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "PDF uploaded successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "PDF uploaded successful", Toast.LENGTH_SHORT).show();
                         pdfTitle.setText("");
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "Failed to upload PDF", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "Failed to upload PDF", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -350,7 +350,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
         progressDialog.setTitle("Please wait...");
         progressDialog.setTitle("Uploading pdf");
         progressDialog.show();
-        StorageReference reference = storageReference.child("question_class_eight/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        StorageReference reference = storageReference.child("solve_class_eight/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
         reference.putFile(pdfData)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -366,7 +366,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "Something went wrong...!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "Something went wrong...!", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -374,25 +374,25 @@ public class UploadQuestionActivity extends AppCompatActivity {
 
     private void uploadDataEight(String valueOf) {
 
-        String uniqueKey = databaseReference.child("question_class_eight").push().getKey();
+        String uniqueKey = databaseReference.child("solve_class_eight").push().getKey();
 
         HashMap data = new HashMap();
         data.put("pdfTitle", title);
         data.put("pdfUrl", valueOf);
 
-        databaseReference.child("question_class_eight").child(uniqueKey).setValue(data)
+        databaseReference.child("solve_class_eight").child(uniqueKey).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "PDF uploaded successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "PDF uploaded successful", Toast.LENGTH_SHORT).show();
                         pdfTitle.setText("");
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "Failed to upload PDF", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "Failed to upload PDF", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -404,7 +404,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
         progressDialog.setTitle("Please wait...");
         progressDialog.setTitle("Uploading pdf");
         progressDialog.show();
-        StorageReference reference = storageReference.child("question_class_seven/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        StorageReference reference = storageReference.child("solve_class_seven/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
         reference.putFile(pdfData)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -420,7 +420,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "Something went wrong...!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "Something went wrong...!", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -428,25 +428,25 @@ public class UploadQuestionActivity extends AppCompatActivity {
 
     private void uploadDataSeven(String valueOf) {
 
-        String uniqueKey = databaseReference.child("question_class_seven").push().getKey();
+        String uniqueKey = databaseReference.child("solve_class_seven").push().getKey();
 
         HashMap data = new HashMap();
         data.put("pdfTitle", title);
         data.put("pdfUrl", valueOf);
 
-        databaseReference.child("question_class_seven").child(uniqueKey).setValue(data)
+        databaseReference.child("solve_class_seven").child(uniqueKey).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "PDF uploaded successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "PDF uploaded successful", Toast.LENGTH_SHORT).show();
                         pdfTitle.setText("");
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "Failed to upload PDF", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "Failed to upload PDF", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -457,7 +457,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
         progressDialog.setTitle("Please wait...");
         progressDialog.setTitle("Uploading pdf");
         progressDialog.show();
-        StorageReference reference = storageReference.child("question_class_six/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        StorageReference reference = storageReference.child("solve_class_six/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
         reference.putFile(pdfData)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -471,7 +471,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "Something went wrong...!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "Something went wrong...!", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -479,25 +479,25 @@ public class UploadQuestionActivity extends AppCompatActivity {
 
     private void uploadData(String valueOf) {
 
-        String uniqueKey = databaseReference.child("question_class_six").push().getKey();
+        String uniqueKey = databaseReference.child("solve_class_six").push().getKey();
 
         HashMap data = new HashMap();
         data.put("pdfTitle", title);
         data.put("pdfUrl", valueOf);
 
-        databaseReference.child("question_class_six").child(uniqueKey).setValue(data)
+        databaseReference.child("solve_class_six").child(uniqueKey).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "PDF uploaded successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "PDF uploaded successful", Toast.LENGTH_SHORT).show();
                         pdfTitle.setText("");
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(UploadQuestionActivity.this, "Failed to upload PDF", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadSolveActivity.this, "Failed to upload PDF", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -520,7 +520,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
             if (pdfData.toString().startsWith("content://")) {
                 Cursor cursor = null;
                 try {
-                    cursor = UploadQuestionActivity.this.getContentResolver().query(pdfData, null, null, null, null);
+                    cursor = UploadSolveActivity.this.getContentResolver().query(pdfData, null, null, null, null);
                     if (cursor != null && cursor.moveToFirst()) {
 
                         pdfName = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));

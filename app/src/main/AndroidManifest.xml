@@ -21,16 +21,18 @@
         android:theme="@style/Theme.MyCoaching"
         tools:targetApi="31">
 
-
+        <activity
+            android:name=".solvequestionactivity.UploadSolveActivity"
+            android:exported="false"
+            android:parentActivityName=".solvequestionactivity.QuestionSolveActivity"/>
         <activity
             android:name=".questionactivity.QuestionViewActivity"
             android:exported="false"
-            android:parentActivityName=".questionactivity.ExamQuestionActivity"/>
+            android:parentActivityName=".questionactivity.ExamQuestionActivity" />
         <activity
             android:name=".questionactivity.UploadQuestionActivity"
             android:exported="false"
-            android:parentActivityName=".questionactivity.ExamQuestionActivity"
-            />
+            android:parentActivityName=".questionactivity.ExamQuestionActivity" />
         <activity
             android:name=".syllabusactivity.SyllabusViewActivity"
             android:exported="false"
@@ -42,7 +44,7 @@
             android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".QuestionSolveActivity"
+            android:name=".solvequestionactivity.QuestionSolveActivity"
             android:exported="true"
             android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait" />
