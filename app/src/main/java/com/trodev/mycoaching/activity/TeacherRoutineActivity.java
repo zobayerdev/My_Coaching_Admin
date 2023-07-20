@@ -59,6 +59,9 @@ public class TeacherRoutineActivity extends AppCompatActivity {
         databaseStudents = FirebaseDatabase.getInstance().getReference("Teacher Routine");
         // user= FirebaseAuth.getInstance().getCurrentUser();
 
+        /*create offline mood*/
+        databaseStudents.keepSynced(true);
+
         listener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

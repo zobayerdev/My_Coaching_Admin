@@ -60,6 +60,10 @@ public class ExamQuestionActivity extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference().child("question_class_six");
         referenceSeven = FirebaseDatabase.getInstance().getReference().child("question_class_seven");
 
+        /*offline mode create*/
+        reference.keepSynced(true);
+        referenceSeven.keepSynced(true);
+
         getData();
         getDataSeven();
     }
