@@ -21,11 +21,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCoaching"
         tools:targetApi="31">
-
+        <activity
+            android:name=".tube.TubeActivity"
+            android:exported="false" />
         <activity
             android:name=".solvequestionactivity.UploadSolveActivity"
             android:exported="false"
-            android:parentActivityName=".solvequestionactivity.QuestionSolveActivity"/>
+            android:parentActivityName=".solvequestionactivity.QuestionSolveActivity" />
         <activity
             android:name=".questionactivity.QuestionViewActivity"
             android:exported="false"

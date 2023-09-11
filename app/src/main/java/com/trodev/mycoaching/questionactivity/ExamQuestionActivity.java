@@ -57,8 +57,9 @@ public class ExamQuestionActivity extends AppCompatActivity {
         /*pdf data*/
         questionRv = findViewById(R.id.questionRv);
         qustionsevenRv = findViewById(R.id.qustionsevenRv);
-        reference = FirebaseDatabase.getInstance().getReference().child("question_class_six");
-        referenceSeven = FirebaseDatabase.getInstance().getReference().child("question_class_seven");
+       // reference = FirebaseDatabase.getInstance().getReference().child("question_class_six");
+        reference = FirebaseDatabase.getInstance().getReference().child("questions").child("question_class_six");
+        referenceSeven = FirebaseDatabase.getInstance().getReference().child("questions").child("question_class_seven");
 
         /*offline mode create*/
         reference.keepSynced(true);

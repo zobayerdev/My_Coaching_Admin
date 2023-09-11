@@ -43,7 +43,7 @@ public class UploadPDFActivity extends AppCompatActivity {
     private Uri pdfData;
     private DatabaseReference databaseReference;
     private StorageReference storageReference;
-    String downloadUrl = ""; // must amne dite hobe nahole not responding dekhabe
+    String downloadUrl = "";
     private ProgressDialog progressDialog;
 
     private String pdfName, title;
@@ -131,6 +131,55 @@ public class UploadPDFActivity extends AppCompatActivity {
             }
         });
 
+        classnineBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                title = pdfTitle.getText().toString();
+                if (title.isEmpty()) {
+                    pdfTitle.setError("Empty...!");
+                    pdfTitle.requestFocus();
+
+                } else if (pdfData == null) {
+                    Toast.makeText(UploadPDFActivity.this, "Please select pdf...!", Toast.LENGTH_SHORT).show();
+                } else {
+                    uploadPdfNine();
+                }
+            }
+        });
+
+        classtenBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                title = pdfTitle.getText().toString();
+                if (title.isEmpty()) {
+                    pdfTitle.setError("Empty...!");
+                    pdfTitle.requestFocus();
+
+                } else if (pdfData == null) {
+                    Toast.makeText(UploadPDFActivity.this, "Please select pdf...!", Toast.LENGTH_SHORT).show();
+                } else {
+                    uploadPdfTen();
+                }
+            }
+        });
+
+
+        classhscBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                title = pdfTitle.getText().toString();
+                if (title.isEmpty()) {
+                    pdfTitle.setError("Empty...!");
+                    pdfTitle.requestFocus();
+
+                } else if (pdfData == null) {
+                    Toast.makeText(UploadPDFActivity.this, "Please select pdf...!", Toast.LENGTH_SHORT).show();
+                } else {
+                    uploadPdfHsc();
+                }
+            }
+        });
+
     }
 
 
@@ -139,7 +188,7 @@ public class UploadPDFActivity extends AppCompatActivity {
         progressDialog.setTitle("Please wait...");
         progressDialog.setTitle("Uploading pdf");
         progressDialog.show();
-        StorageReference reference = storageReference.child("syllabus_class_six/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        StorageReference reference = storageReference .child("syllabus").child("syllabus_class_six/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
         reference.putFile(pdfData)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -161,13 +210,13 @@ public class UploadPDFActivity extends AppCompatActivity {
 
     private void uploadDataSix(String valueOf) {
 
-        String uniqueKey = databaseReference.child("syllabus_class_six").push().getKey();
+        String uniqueKey = databaseReference .child("syllabus").child("syllabus_class_six").push().getKey();
 
         HashMap data = new HashMap();
         data.put("pdfTitle", title);
         data.put("pdfUrl", valueOf);
 
-        databaseReference.child("syllabus_class_six").child(uniqueKey).setValue(data)
+        databaseReference .child("syllabus").child("syllabus_class_six").child(uniqueKey).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -192,7 +241,7 @@ public class UploadPDFActivity extends AppCompatActivity {
         progressDialog.setTitle("Please wait...");
         progressDialog.setTitle("Uploading pdf");
         progressDialog.show();
-        StorageReference reference = storageReference.child("syllabus_class_seven/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        StorageReference reference = storageReference .child("syllabus").child("syllabus_class_seven/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
         reference.putFile(pdfData)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -216,13 +265,13 @@ public class UploadPDFActivity extends AppCompatActivity {
 
     private void uploadDataSeven(String valueOf) {
 
-        String uniqueKey = databaseReference.child("syllabus_class_seven").push().getKey();
+        String uniqueKey = databaseReference .child("syllabus").child("syllabus_class_seven").push().getKey();
 
         HashMap data = new HashMap();
         data.put("pdfTitle", title);
         data.put("pdfUrl", valueOf);
 
-        databaseReference.child("syllabus_class_seven").child(uniqueKey).setValue(data)
+        databaseReference .child("syllabus").child("syllabus_class_seven").child(uniqueKey).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -249,7 +298,7 @@ public class UploadPDFActivity extends AppCompatActivity {
         progressDialog.show();
 
 
-        StorageReference reference = storageReference.child("syllabus_class_eight/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        StorageReference reference = storageReference .child("syllabus").child("syllabus_class_eight/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
         reference.putFile(pdfData)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -271,13 +320,13 @@ public class UploadPDFActivity extends AppCompatActivity {
 
     private void uploadDataEight(String valueOf) {
 
-        String uniqueKey = databaseReference.child("syllabus_class_eight").push().getKey();
+        String uniqueKey = databaseReference .child("syllabus").child("syllabus_class_eight").push().getKey();
 
         HashMap data = new HashMap();
         data.put("pdfTitle", title);
         data.put("pdfUrl", valueOf);
 
-        databaseReference.child("syllabus_class_eight").child(uniqueKey).setValue(data)
+        databaseReference .child("syllabus").child("syllabus_class_eight").child(uniqueKey).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -294,6 +343,163 @@ public class UploadPDFActivity extends AppCompatActivity {
                 });
 
     }
+
+
+
+    /*################### Upload Data Nine #######################*/
+    private void uploadPdfNine() {
+        progressDialog.setTitle("Please wait...");
+        progressDialog.setTitle("Uploading pdf");
+        progressDialog.show();
+        StorageReference reference = storageReference .child("syllabus").child("syllabus_class_nine/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        reference.putFile(pdfData)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                        while (!uriTask.isComplete()) ;
+                        Uri uri = uriTask.getResult();
+                        uploadDataNine(String.valueOf(uri));
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
+                        Toast.makeText(UploadPDFActivity.this, "Something went wrong...!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
+
+    private void uploadDataNine(String valueOf) {
+
+        String uniqueKey = databaseReference .child("syllabus").child("syllabus_class_nine").push().getKey();
+
+        HashMap data = new HashMap();
+        data.put("pdfTitle", title);
+        data.put("pdfUrl", valueOf);
+
+        databaseReference .child("syllabus").child("syllabus_class_nine").child(uniqueKey).setValue(data)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        progressDialog.dismiss();
+                        Toast.makeText(UploadPDFActivity.this, "PDF uploaded successful", Toast.LENGTH_SHORT).show();
+                        pdfTitle.setText("");
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
+                        Toast.makeText(UploadPDFActivity.this, "Failed to upload PDF", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
+
+    /*################### Upload Data Ten #######################*/
+    private void uploadPdfTen() {
+        progressDialog.setTitle("Please wait...");
+        progressDialog.setTitle("Uploading pdf");
+        progressDialog.show();
+        StorageReference reference = storageReference .child("syllabus").child("syllabus_class_ten/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        reference.putFile(pdfData)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                        while (!uriTask.isComplete()) ;
+                        Uri uri = uriTask.getResult();
+                        uploadDataTen(String.valueOf(uri));
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
+                        Toast.makeText(UploadPDFActivity.this, "Something went wrong...!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
+
+    private void uploadDataTen(String valueOf) {
+
+        String uniqueKey = databaseReference .child("syllabus").child("syllabus_class_ten").push().getKey();
+
+        HashMap data = new HashMap();
+        data.put("pdfTitle", title);
+        data.put("pdfUrl", valueOf);
+
+        databaseReference .child("syllabus").child("syllabus_class_ten").child(uniqueKey).setValue(data)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        progressDialog.dismiss();
+                        Toast.makeText(UploadPDFActivity.this, "PDF uploaded successful", Toast.LENGTH_SHORT).show();
+                        pdfTitle.setText("");
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
+                        Toast.makeText(UploadPDFActivity.this, "Failed to upload PDF", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
+
+
+    /*################### Upload Data HSC #######################*/
+    private void uploadPdfHsc() {
+        progressDialog.setTitle("Please wait...");
+        progressDialog.setTitle("Uploading pdf");
+        progressDialog.show();
+        StorageReference reference = storageReference .child("syllabus").child("syllabus_class_hsc/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        reference.putFile(pdfData)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                        while (!uriTask.isComplete()) ;
+                        Uri uri = uriTask.getResult();
+                        uploadDataHsc(String.valueOf(uri));
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
+                        Toast.makeText(UploadPDFActivity.this, "Something went wrong...!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
+
+    private void uploadDataHsc(String valueOf) {
+
+        String uniqueKey = databaseReference .child("syllabus").child("syllabus_class_hsc").push().getKey();
+
+        HashMap data = new HashMap();
+        data.put("pdfTitle", title);
+        data.put("pdfUrl", valueOf);
+
+        databaseReference .child("syllabus").child("syllabus_class_hsc").child(uniqueKey).setValue(data)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        progressDialog.dismiss();
+                        Toast.makeText(UploadPDFActivity.this, "PDF uploaded successful", Toast.LENGTH_SHORT).show();
+                        pdfTitle.setText("");
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
+                        Toast.makeText(UploadPDFActivity.this, "Failed to upload PDF", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
+
 
     private void openGallery() {
         Intent intent = new Intent();

@@ -55,7 +55,7 @@ public class ExamSyllabusActivity extends AppCompatActivity {
 
         /*pdf data*/
         ebookRecycler = findViewById(R.id.ebookRecycler);
-        reference = FirebaseDatabase.getInstance().getReference().child("syllabus_class_six");
+        reference = FirebaseDatabase.getInstance().getReference().child("syllabus").child("syllabus_class_six");
         referenceSeven = FirebaseDatabase.getInstance().getReference().child("syllabus_class_seven");
         referenceEight = FirebaseDatabase.getInstance().getReference().child("syllabus_class_eight");
 

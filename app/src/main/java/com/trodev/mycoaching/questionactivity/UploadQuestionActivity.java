@@ -191,7 +191,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
         progressDialog.setTitle("Please wait...");
         progressDialog.setTitle("Uploading pdf");
         progressDialog.show();
-        StorageReference reference = storageReference.child("question_class_hsc/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        StorageReference reference = storageReference.child("questions").child("question_class_hsc/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
         reference.putFile(pdfData)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -215,13 +215,13 @@ public class UploadQuestionActivity extends AppCompatActivity {
 
     private void uploadDataHsc(String valueOf) {
 
-        String uniqueKey = databaseReference.child("question_class_hsc").push().getKey();
+        String uniqueKey = databaseReference.child("questions").child("question_class_hsc").push().getKey();
 
         HashMap data = new HashMap();
         data.put("pdfTitle", title);
         data.put("pdfUrl", valueOf);
 
-        databaseReference.child("question_class_hsc").child(uniqueKey).setValue(data)
+        databaseReference.child("questions").child("question_class_hsc").child(uniqueKey).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -244,7 +244,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
         progressDialog.setTitle("Please wait...");
         progressDialog.setTitle("Uploading pdf");
         progressDialog.show();
-        StorageReference reference = storageReference.child("question_class_ten/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        StorageReference reference = storageReference.child("questions").child("question_class_ten/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
         reference.putFile(pdfData)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -268,13 +268,13 @@ public class UploadQuestionActivity extends AppCompatActivity {
 
     private void uploadDataTen(String valueOf) {
 
-        String uniqueKey = databaseReference.child("question_class_ten").push().getKey();
+        String uniqueKey = databaseReference.child("questions").child("question_class_ten").push().getKey();
 
         HashMap data = new HashMap();
         data.put("pdfTitle", title);
         data.put("pdfUrl", valueOf);
 
-        databaseReference.child("question_class_ten").child(uniqueKey).setValue(data)
+        databaseReference.child("questions").child("question_class_ten").child(uniqueKey).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -297,7 +297,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
         progressDialog.setTitle("Please wait...");
         progressDialog.setTitle("Uploading pdf");
         progressDialog.show();
-        StorageReference reference = storageReference.child("question_class_nine/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        StorageReference reference = storageReference.child("questions").child("question_class_nine/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
         reference.putFile(pdfData)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -321,13 +321,13 @@ public class UploadQuestionActivity extends AppCompatActivity {
 
     private void uploadDataNine(String valueOf) {
 
-        String uniqueKey = databaseReference.child("question_class_nine").push().getKey();
+        String uniqueKey = databaseReference.child("questions").child("question_class_nine").push().getKey();
 
         HashMap data = new HashMap();
         data.put("pdfTitle", title);
         data.put("pdfUrl", valueOf);
 
-        databaseReference.child("question_class_nine").child(uniqueKey).setValue(data)
+        databaseReference.child("questions").child("question_class_nine").child(uniqueKey).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -350,7 +350,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
         progressDialog.setTitle("Please wait...");
         progressDialog.setTitle("Uploading pdf");
         progressDialog.show();
-        StorageReference reference = storageReference.child("question_class_eight/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        StorageReference reference = storageReference.child("questions").child("question_class_eight/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
         reference.putFile(pdfData)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -374,13 +374,13 @@ public class UploadQuestionActivity extends AppCompatActivity {
 
     private void uploadDataEight(String valueOf) {
 
-        String uniqueKey = databaseReference.child("question_class_eight").push().getKey();
+        String uniqueKey = databaseReference.child("questions").child("question_class_eight").push().getKey();
 
         HashMap data = new HashMap();
         data.put("pdfTitle", title);
         data.put("pdfUrl", valueOf);
 
-        databaseReference.child("question_class_eight").child(uniqueKey).setValue(data)
+        databaseReference.child("questions").child("question_class_eight").child(uniqueKey).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -404,7 +404,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
         progressDialog.setTitle("Please wait...");
         progressDialog.setTitle("Uploading pdf");
         progressDialog.show();
-        StorageReference reference = storageReference.child("question_class_seven/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        StorageReference reference = storageReference.child("questions").child("question_class_seven/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
         reference.putFile(pdfData)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -428,13 +428,13 @@ public class UploadQuestionActivity extends AppCompatActivity {
 
     private void uploadDataSeven(String valueOf) {
 
-        String uniqueKey = databaseReference.child("question_class_seven").push().getKey();
+        String uniqueKey = databaseReference.child("questions").child("question_class_seven").push().getKey();
 
         HashMap data = new HashMap();
         data.put("pdfTitle", title);
         data.put("pdfUrl", valueOf);
 
-        databaseReference.child("question_class_seven").child(uniqueKey).setValue(data)
+        databaseReference.child("questions").child("question_class_seven").child(uniqueKey).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -457,7 +457,7 @@ public class UploadQuestionActivity extends AppCompatActivity {
         progressDialog.setTitle("Please wait...");
         progressDialog.setTitle("Uploading pdf");
         progressDialog.show();
-        StorageReference reference = storageReference.child("question_class_six/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
+        StorageReference reference = storageReference.child("questions").child("question_class_six/" + pdfName + "-" + System.currentTimeMillis() + ".pdf");
         reference.putFile(pdfData)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -479,13 +479,13 @@ public class UploadQuestionActivity extends AppCompatActivity {
 
     private void uploadData(String valueOf) {
 
-        String uniqueKey = databaseReference.child("question_class_six").push().getKey();
+        String uniqueKey = databaseReference.child("questions").child("question_class_six").push().getKey();
 
         HashMap data = new HashMap();
         data.put("pdfTitle", title);
         data.put("pdfUrl", valueOf);
 
-        databaseReference.child("question_class_six").child(uniqueKey).setValue(data)
+        databaseReference.child("questions").child("question_class_six").child(uniqueKey).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

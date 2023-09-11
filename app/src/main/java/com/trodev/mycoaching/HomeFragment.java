@@ -14,6 +14,7 @@ import com.trodev.mycoaching.activity.TeacherRoutineActivity;
 import com.trodev.mycoaching.questionactivity.ExamQuestionActivity;
 import com.trodev.mycoaching.solvequestionactivity.QuestionSolveActivity;
 import com.trodev.mycoaching.syllabusactivity.ExamSyllabusActivity;
+import com.trodev.mycoaching.tube.TubeActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -77,7 +78,7 @@ public class HomeFragment extends Fragment {
         videoLectureLl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), UploadVideoActivity.class);
+                Intent intent = new Intent(getContext(), TubeActivity.class);
                 getContext().startActivity(intent);
             }
         });
