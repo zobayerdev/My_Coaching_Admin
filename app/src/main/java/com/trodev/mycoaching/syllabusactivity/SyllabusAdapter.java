@@ -28,7 +28,7 @@ public class SyllabusAdapter extends RecyclerView.Adapter<SyllabusAdapter.EbookV
     @NonNull
     @Override
     public EbookViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.ebook_item_layout,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.syllabus_item_layout,parent,false);
         return new EbookViewHolder(view);
     }
 

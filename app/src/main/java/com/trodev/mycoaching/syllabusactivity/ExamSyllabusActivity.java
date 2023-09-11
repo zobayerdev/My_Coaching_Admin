@@ -26,11 +26,10 @@ public class ExamSyllabusActivity extends AppCompatActivity {
 
     /*import widget*/
     FloatingActionButton fab;
-    private RecyclerView ebookRecycler;
+    private RecyclerView ebookRecycler, sevenRecycler;
     private DatabaseReference reference, referenceSeven, referenceEight;
     private List<SyllabusData> list;
     private SyllabusAdapter adapter;
-    ProgressBar progreeBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +41,6 @@ public class ExamSyllabusActivity extends AppCompatActivity {
 
         /*find this widget with id*/
         fab = findViewById(R.id.fab);
-        progreeBar = findViewById(R.id.progreeBar);
 
         /*set on click listener*/
         fab.setOnClickListener(new View.OnClickListener() {
@@ -55,9 +53,10 @@ public class ExamSyllabusActivity extends AppCompatActivity {
 
         /*pdf data*/
         ebookRecycler = findViewById(R.id.ebookRecycler);
-        reference = FirebaseDatabase.getInstance().getReference().child("syllabus").child("syllabus_class_six");
-        referenceSeven = FirebaseDatabase.getInstance().getReference().child("syllabus_class_seven");
-        referenceEight = FirebaseDatabase.getInstance().getReference().child("syllabus_class_eight");
+        sevenRecycler = findViewById(R.id.sevenRecycler);
+        reference = FirebaseDatabase.getInstance().getReference().child("syllabus").child("syllabus_class_six/");
+        referenceSeven = FirebaseDatabase.getInstance().getReference().child("syllabus").child("syllabus_class_seven");
+       // referenceEight = FirebaseDatabase.getInstance().getReference().child("syllabus_class_eight");
 
         getData();
         getDataSeven();
@@ -77,14 +76,12 @@ public class ExamSyllabusActivity extends AppCompatActivity {
                 }
 
                 adapter = new SyllabusAdapter(ExamSyllabusActivity.this, list);
-                progreeBar.setVisibility(View.GONE);
                 ebookRecycler.setLayoutManager(new LinearLayoutManager(ExamSyllabusActivity.this));
                 ebookRecycler.setAdapter(adapter);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                progreeBar.setVisibility(View.VISIBLE);
                 Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
             }
         });
@@ -97,61 +94,24 @@ public class ExamSyllabusActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                progreeBar.setVisibility(View.VISIBLE);
                 list = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     SyllabusData data = snapshot.getValue(SyllabusData.class);
                     list.add(data);
                 }
 
-                progreeBar.setVisibility(View.INVISIBLE);
+
                 adapter = new SyllabusAdapter(ExamSyllabusActivity.this, list);
-                // progressBar.setVisibility(View.GONE);
-                ebookRecycler.setLayoutManager(new LinearLayoutManager(ExamSyllabusActivity.this));
-                ebookRecycler.setAdapter(adapter);
+                sevenRecycler.setLayoutManager(new LinearLayoutManager(ExamSyllabusActivity.this));
+                sevenRecycler.setAdapter(adapter);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                progreeBar.setVisibility(View.GONE);
                 Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
             }
         });
 
     }
-
-
-    /*#########################################*/
-    /*
-     * Must create a nested recyclerview
-     * Must add all ebook recyclerview add on adapter
-     * */
-/*    private void getDataEight() {
-        referenceEight.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                progreeBar.setVisibility(View.VISIBLE);
-                list = new ArrayList<>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    SyllabusData data = snapshot.getValue(SyllabusData.class);
-                    list.add(data);
-                }
-
-                progreeBar.setVisibility(View.INVISIBLE);
-                adapter = new SyllabusAdapter(ExamSyllabusActivity.this, list);
-                // progressBar.setVisibility(View.GONE);
-                ebookRecycler.setLayoutManager(new LinearLayoutManager(ExamSyllabusActivity.this));
-                ebookRecycler.setAdapter(adapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                progreeBar.setVisibility(View.GONE);
-                Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }*/
 
 }
